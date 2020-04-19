@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"       
+              xmlns:fontawesome="clr-namespace:EzFit.Utils.FontAwesome"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+             mc:Ignorable="d"
+             BackgroundColor="#f4f4f4"
+             Title="Mes infos"
+             x:Class="EzFit.Views.InfosEntryPage">
+    <ContentPage.Content>
+   <StackLayout>
+        <StackLayout Margin="20">
+
+
+                <Picker x:Name="pickerSex"
+                Title="Genre"
+                TextColor="#518faa"
+                ItemDisplayBinding="{Binding ValVisuel}"              
+                SelectedIndexChanged="pickerSex_OnSelectedIndexChanged" />
+
+                <Picker x:Name="listObjectif"
+                Title="Ton objectif"
+                TextColor="#518faa"
+                ItemDisplayBinding="{Binding ValVisuel}"
+                SelectedIndexChanged="listObjectif_OnSelectedIndexChanged" />
+            
+                <Picker x:Name="listActiviter"
+                Title="Ton rythme"
+                TextColor="#518faa"
+                ItemDisplayBinding="{Binding ValVisuel}"
+                SelectedIndexChanged="listActiviter_OnSelectedIndexChanged" />
+
+
+               <Entry x:Name="nameEntry"
+               MaxLength = "15"
+               Placeholder="Prénom" />
+
+               <Entry x:Name="ageEntry"
+               MaxLength = "2"
+               Placeholder="Age en années" />
+
+               <Entry x:Name="tailleEntry"
+               MaxLength = "3"                      
+               Placeholder="Taille en cm" />
+
+
+               <Entry x:Name="poidsEntry"
+                MaxLength = "4"
+                Placeholder="Poids en Kg" />
+
+    <flex:FlexButton 
+    Margin="65"
+    FontFamily="{StaticResource FontAwesomeRegular}"
+    Text="{x:Static fontawesome:FontAwesomeIcons.Save}"
+    FontSize="40"
+    Clicked="EnregistrerButtonClicked"
+    WidthRequest="100"
+    HeightRequest="100"
+    CornerRadius="5"
+    HorizontalOptions="Center"
+    Icon="lightbulb.png"
+    ForegroundColor="#ffffff"
+    HighlightForegroundColor="#49516F"
+    BackgroundColor="#518faa"
+    HighlightBackgroundColor="#8EA4D2" />
+
+
+
+
+            </StackLayout>
+
+           
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

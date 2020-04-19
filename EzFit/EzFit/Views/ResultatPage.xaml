@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:fontawesome="clr-namespace:EzFit.Utils.FontAwesome"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+             mc:Ignorable="d"
+             Title="Aperçu"
+             x:Class="EzFit.Views.ResultatPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Picker x:Name="pickerMe"
+                Title="C'est qui"
+                TextColor="#518faa"
+                ItemDisplayBinding="{Binding Name}"
+                SelectedIndexChanged="me_OnSelectedIndexChanged" />
+
+            <Label x:Name="textICI" />
+                <Label x:Name="textIMC" />
+                <Label x:Name="textMacro" />
+                <Label x:Name="textIMG" />
+                <Label x:Name="textMB" />
+                <Label x:Name="textR" />
+       
+
+                <flex:FlexButton 
+                   
+    Margin="150"
+    FontFamily="{StaticResource FontAwesomeRegular}"
+    Text="{x:Static fontawesome:FontAwesomeIcons.CheckSquare}"
+    FontSize="40"
+    Clicked="ResultatButtonClicked"
+    WidthRequest="100"
+    HeightRequest="100"
+    CornerRadius="5"
+    HorizontalOptions="Center"
+    Icon="lightbulb.png"
+    ForegroundColor="#ffffff"
+    HighlightForegroundColor="#49516F"
+    BackgroundColor="#518faa"
+    HighlightBackgroundColor="#8EA4D2" />
+           
+
+            
+
+
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<ListView x:Name="listSel" IsPullToRefreshEnabled="True" RowHeight="50">
+    <ListView.ItemTemplate>
+        <DataTemplate>
+            <ViewCell>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="15,0">
+                    <Label Text="{Binding ID}" />
+                    <Label Text="{Binding Name}" FontAttributes="Bold"/>
+
+                    --><!--<Label Text="{Binding Taille}" />
+                                <Label Text="{Binding ValLifeStyle}"/>
+                                <Label Text="{Binding ValObjectif}"/>
+                                <Label Text="{Binding ValSex}" />
+                                <Label Text="{Binding Poids}"/>
+                                <Label Text="{Binding Age}"/>--><!--
+
+                    <Label Text="{Binding IMC}" />
+                    <Label Text="{Binding IMG}" />
+                    <Label Text="{Binding MBasal}"/>
+                    <Label Text="{Binding Mbresult}" FontSize="15"/>
+                    <Label Text="{Binding MacroP}" />
+                    <Label Text="{Binding MacroG}" />
+                    <Label Text="{Binding MacroL}" />
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ListView.ItemTemplate>
+</ListView>-->

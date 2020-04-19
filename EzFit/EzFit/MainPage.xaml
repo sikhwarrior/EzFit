@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:fontawesome="clr-namespace:EzFit.Utils.FontAwesome"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
+             mc:Ignorable="d"
+             x:Class="EzFit.MainPage">
+<ContentPage.Content>
+
+        <StackLayout Spacing="0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout BackgroundColor="#518faa" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Start">
+                <!--<Image Margin="0,35,0,0" Source="lab_logo.png" HeightRequest="100"></Image>-->
+                <Label Margin="0,20,0,10" HorizontalTextAlignment="Center" HeightRequest="100"  FontSize="95" Text="{x:Static fontawesome:FontAwesomeIcons.GrinHearts} "
+        FontFamily="{StaticResource FontAwesomeRegular}" />
+
+                <Label Margin="0,00,0,00" FontAttributes="Bold" TextColor="White"  Text="YumFit" HorizontalTextAlignment="Center" FontSize="70">
+
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <OnPlatform.iOS>HelveticaNeue-Thin</OnPlatform.iOS>
+                            <!--<OnPlatform.Android>HelveticaNeue-Thin.ttf#HelveticaNeue-Thin</OnPlatform.Android>-->
+                            <OnPlatform.Android>Samantha.ttf#Samantha</OnPlatform.Android>
+                        </OnPlatform>
+
+                    </Label.FontFamily>
+                </Label>
+            </StackLayout>
+            
+            <Image Aspect="AspectFill" Source="lab_separator.png"></Image>
+
+            <StackLayout Margin="30,30,30,0" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <flex:FlexButton 
+    FontFamily="{StaticResource FontAwesomeRegular}"
+    Text="{x:Static fontawesome:FontAwesomeIcons.User}"
+    FontSize="40"
+    Clicked="InfosButtonClicked"
+    WidthRequest="100"
+    HeightRequest="100"
+    CornerRadius="5"
+    HorizontalOptions="Center"
+    Icon="lightbulb.png"
+    ForegroundColor="#ffffff"
+    HighlightForegroundColor="#49516F"
+    BackgroundColor="#518faa"
+    HighlightBackgroundColor="#8EA4D2" />
+
+    <flex:FlexButton 
+    FontFamily="{StaticResource FontAwesomeRegular}"
+    Text="{x:Static fontawesome:FontAwesomeIcons.ChartBar}"
+    FontSize="40"
+    Clicked="ChartsButtonClicked"
+    WidthRequest="100"
+    HeightRequest="100"
+    CornerRadius="5"
+    HorizontalOptions="Center"
+    Icon="lightbulb.png"
+    ForegroundColor="#ffffff"
+    HighlightForegroundColor="#49516F"
+    BackgroundColor="#518faa"
+    HighlightBackgroundColor="#8EA4D2" />
+
+    <flex:FlexButton 
+    FontFamily="{StaticResource FontAwesomeRegular}"
+    Text="{x:Static fontawesome:FontAwesomeIcons.Lemon}"
+    FontSize="40"
+    Clicked="NutriButtonClicked"
+    WidthRequest="100"
+    HeightRequest="100"
+    CornerRadius="5"
+    HorizontalOptions="Center"
+    Icon="lightbulb.png"
+    ForegroundColor="#ffffff"
+    HighlightForegroundColor="#49516F"
+    BackgroundColor="#518faa"
+    HighlightBackgroundColor="#8EA4D2" />
+
+            
+
+
+               
+  
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
