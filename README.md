@@ -1,5 +1,5 @@
 # EzFit
-##  App Fitness - Alpha
+##  App Fitness - Alpha - [in Progress] - -
 ### Personnal Fitness App - Made with :heart: and Xamarin.Forms
-[in Progress]
+
 ![alt text](https://github.com/marceloeatworld/EzFit/blob/master/screentest.jpg)
