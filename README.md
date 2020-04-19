@@ -7,9 +7,9 @@
 ![alt text](https://github.com/marceloeatworld/EzFit/blob/master/screentest.jpg)
 
 
-####Authors
+#### Authors
 - Marcelo Pereira
 
 
-####License
-++++
+#### License
+
