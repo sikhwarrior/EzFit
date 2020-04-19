@@ -8,7 +8,7 @@
 
 
 #### Authors
-- Marcelo Pereira
+- Marcelo Pereira :trollface:
 
 
 #### License
