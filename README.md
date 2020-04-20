@@ -9,7 +9,9 @@
 
 #### Authors
  - Marcelo Pereira :trollface:
-
+ 
+#### Download / Télécharger
+![Download](https://github.com/marceloeatworld/EzFit/blob/master/click.png)
 
 #### License
  - Data may be used under the terms and conditions of the Open Licence.
