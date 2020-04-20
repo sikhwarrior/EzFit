@@ -1,4 +1,4 @@
-##  Fitness App - Alpha - [in Progress] - -
+##  Fitness App - Alpha - - [in Progress] - -
 
 ### Personnal Fitness App - Made with :heart: and Xamarin.Forms
 
@@ -9,11 +9,15 @@
 
 #### Authors
  - Marcelo Pereira :trollface:
+ 
+#### Download / Télécharger
 
+[![Image](https://github.com/marceloeatworld/EzFit/blob/master/click.png)](https://aitek.tech/aitfit.apk "APK File")
 
 #### License
- - Data may be used under the terms and conditions of the Open Licence [(in French)](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
+ - Data may be used under the terms and conditions of the Open Licence.
+ 
+ [(French Agency for Food, Environmental and Occupational Health & Safety. ANSES-CIQUAL French food composition table version 2017)](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
 
 
 
- ###### "French Agency for Food, Environmental and Occupational Health & Safety. ANSES-CIQUAL French food composition table version 2017. Retrieved DD/MM/YYYY from the Ciqual homepage https://ciqual.anses.fr/"
