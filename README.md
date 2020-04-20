@@ -11,7 +11,7 @@
  - Marcelo Pereira :trollface:
  
 #### Download / Télécharger
-![Download](https://github.com/marceloeatworld/EzFit/blob/master/click.png)
+[![Image](https://github.com/marceloeatworld/EzFit/blob/master/click.png)](https://aitek.tech/aitdit.apk "APK File")
 
 #### License
  - Data may be used under the terms and conditions of the Open Licence.
