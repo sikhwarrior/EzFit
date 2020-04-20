@@ -33,7 +33,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ListView x:Name="listTest" IsPullToRefreshEnabled="True" RowHeight="100">
+            <ListView x:Name="listNutri" IsPullToRefreshEnabled="True" RowHeight="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -62,18 +62,18 @@
                                     HorizontalOptions="FillAndExpand"
                                     Orientation="Vertical">
                                     <Label Text="{Binding alim_nom_eng}" TextColor="Black" FontSize="24"/>
-                                    <Label Text="{Binding Protein, Carbohydrate, Fibres}" 
+                                    <!--<Label Text="{Binding Protein, Carbohydrate, Fibres}" 
                                            TextColor="#555555"
                                            MaxLines="2"
                                            LineBreakMode="TailTruncation"
-                                           FontSize="16"/>
+                                           FontSize="16"/>-->
 
                                 </StackLayout>
 
-                                <Label Grid.Row="0"
+                                <!--<Label Grid.Row="0"
                                     Grid.Column="2"
                                    VerticalOptions="Center"
-                            Text="{Binding Sugars}" TextColor="Black" FontSize="20"/>
+                            Text="{Binding Sugars}" TextColor="Black" FontSize="20"/>-->
 
 
                             </Grid>

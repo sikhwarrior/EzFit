@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EzFit.Models;
+using Xam.Forms.Markdown;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,7 +16,7 @@ namespace EzFit.Views
     public partial class ResultatPage : ContentPage
     {
 
-        public int IMGS;
+       
 
         public double femmeR;
         public double hommeR;
@@ -28,8 +29,6 @@ namespace EzFit.Views
         public string IMCR;
         public string IMGR;
 
-        public double IMCC;
-        public double IMGG;
 
         public double IMC;
         public double IMG;
@@ -89,32 +88,37 @@ namespace EzFit.Views
         {
             base.OnAppearing();
 
-            //listSel.ItemsSource = await App.Database.GetPersoAsync();
+            listSel.ItemsSource = await App.Database.GetPersoAsync();
             pickerMe.ItemsSource = await App.Database.GetNameAsync();
 
+            pickerMe.SelectedIndexChanged += pickerMe_OnSelectedIndexChanged;
 
-        }
-
-
-        async private void me_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-         
 
 
         }
 
-        async void ResultatButtonClicked(object sender, EventArgs e)
+ 
+    
+
+
+        async private void pickerMe_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            var perso = await App.Database.GetPersoAsync();         
+            if (pickerMe.SelectedIndex == -1)
+            {
+                await DisplayAlert("Salut", "tu es qui ?", "OK");
+                return;
+            }
+
+            var perso = await App.Database.GetPersoAsync();
             var nameselect = (Infos)pickerMe.SelectedItem;
 
 
             foreach (var y in perso)
             {
-             
-                 if(Convert.ToString(y.Name) == Convert.ToString(nameselect.Name))
-                 { 
-                   
+
+                if (Convert.ToString(y.Name) == Convert.ToString(nameselect.Name))
+                {
+
                     age = Convert.ToInt32(y.Age);
 
                     double taille;
@@ -165,13 +169,13 @@ namespace EzFit.Views
 
                     if (Convert.ToString(y.ValSex) == "femme")
                     {
-                        IMGS = 0;
+                       
                         float femme = femme1 * poids + femme2 * Convert.ToSingle(taille) - femme3 * age + femme4;
                         float RF = femme * activiter;
                         double femmeR = Math.Round(RF, 2);
                         double objectifR = femmeR * objectifP;
-                        textMB.Text = Convert.ToString(femmeR);
-                        textR.Text = " Résultat du métabolisme de base pour toi: " + Convert.ToString(objectifR + femmeR) + " en Calories";
+                        textMB.Text = Convert.ToString(Math.Round(femmeR, 0));
+                        textR.Text = " Résultat du métabolisme de base pour toi: " + Convert.ToString(Math.Round(objectifR + femmeR, 0)) + " en Calories";
                         // 20 % proteine - 40 %lipide - 40 %glucide - 30 g de fibre /J
                         double macroP = objectifR + femmeR * (25 / (double)100);
                         double macroL = objectifR + femmeR * (25 / (double)100);
@@ -186,22 +190,26 @@ namespace EzFit.Views
                         double femmeMBR = objectifR + femmeR;
 
 
+
+
+
+                        ////IMG % = (1.20*IMC)+(0.23*AGE)-(10.8*Sexe)-5.4 | La première formule de Deurenberg : homme 1 et femme 0 pour sexe
+                        ////femme Inférieur à 25% 	Trop maigre - Entre 25% et 30% 	Pourcentage normal - Supérieur à 30% 	Trop de graisse
                         double tailleC = Math.Pow(taille, 2);
                         double IMC = poids / tailleC;
-                        Math.Round(IMC, 1);
-                        double IMG = (1.20 * IMC) + (0.23 * age) - (10.8 * IMGS) - 5.4;
-                        int IMGC = Convert.ToInt32(Math.Round(IMG, 0));
-     
+                        double IMG = (1.20 * IMC) + (0.23 * age) - (10.8 * 0) - 5.4;
 
-                        if ((IMG < 25) && (IMGS == 0))
+                        ResultatIMC();
+
+                        if (IMG < 25) 
                         {
                             IMGR = " Tu es trop maigre.";
                         }
-                        else if ((IMG >= 25) && (IMGG <= 30) && (IMGG == 0))
+                        else if ((IMG >= 25) && (IMG <= 30))
                         {
                             IMGR = " Tu es normal.";
                         }
-                        else if ((IMG > 30) && (IMGG == 0))
+                        else if ((IMG > 30) && (IMG == 0))
                         {
                             IMGR = " Tu es a trop de graisse.";
                         };
@@ -216,15 +224,15 @@ namespace EzFit.Views
                             MacroP = Math.Round((macroP / 4), 0),
                             MacroG = Math.Round((macroG / 4), 0),
                             MacroL = Math.Round((macroL / 9), 0),
-                            IMG = IMGC,
-                            MBasal = Convert.ToDouble(objectifR),
+                            IMG = Math.Round(IMG, 0),
+                            MBasal = Math.Round(femmeR, 0),
                             Age = y.Age,
                             Poids = y.Poids,
                             Taille = y.Taille,
                             ValLifeStyle = y.ValLifeStyle,
                             ValSex = y.ValSex,
                             ValObjectif = y.ValObjectif,
-                            MBresult = Convert.ToDouble(femmeMBR),
+                            MBresult = Convert.ToDouble(Math.Round(femmeMBR, 0)),
 
                         }); ;
 
@@ -235,19 +243,19 @@ namespace EzFit.Views
                     }
                     else if (Convert.ToString(y.ValSex) == "homme")
                     {
-                        IMGS = 1;
+                        
                         float homme = homme1 * poids + homme2 * Convert.ToSingle(taille) - homme3 * age + homme4;
                         float RH = homme * activiter;
                         double hommeR = Math.Round(RH, 2);
                         double objectifR = hommeR * objectifP;
-                        textMB.Text = Convert.ToString(hommeR);
-                        textR.Text = "Résultat du métabolisme de base pour toi : " + Convert.ToString(objectifR + hommeR) + " en Calories";
+                        textMB.Text = Convert.ToString(Math.Round(hommeR, 0));
+                        textR.Text = "Résultat du métabolisme de base pour toi : " + Convert.ToString(Math.Round(objectifR + hommeR, 0)) + " en Calories";
                         // 20 % proteine - 40 %lipide - 40 %glucide - 30 g de fibre /J
                         double macroP = objectifR + hommeR * (25 / (double)100);
                         double macroL = objectifR + hommeR * (25 / (double)100);
                         double macroG = objectifR + hommeR * (50 / (double)100);
                         //double fibre =  macroG * (30 / (double)100);
-                        
+
                         textMacro.Text = Convert.ToString(Math.Round((macroP / 4), 0)) + " g de Porteines | "
                                             + Convert.ToString(Math.Round((macroL / 9), 0)) + " g de Lipides | "
                                             + Convert.ToString(Math.Round((macroG / 4), 0)) /*- Math.Round((fibre / 1.9), 0))*/ + " g de Glucides | "
@@ -255,25 +263,34 @@ namespace EzFit.Views
                         textICI.Text = Convert.ToString(y.ValSex) + " " + Convert.ToString(y.ValObjectif) + " " + Convert.ToString(y.ValLifeStyle) + " " + Convert.ToString(y.Taille) + " " + Convert.ToString(y.Poids) + " " + Convert.ToString(y.Age);
                         double hommeMBR = objectifR + hommeR;
 
+
+
+                        ////IMG % = (1.20*IMC)+(0.23*AGE)-(10.8*Sexe)-5.4 | La première formule de Deurenberg : homme 1 et femme 0 pour sexe            
+                        ////homme Inférieur à 15% 	Trop maigre - Entre 15% et 20% 	Pourcentage normal - Supérieur à 20% 	Trop de graisse
+
+
                         double tailleC = Math.Pow(taille, 2);
                         double IMC = poids / tailleC;
-                        Math.Round(IMC, 1);
-                        double IMG = (1.20 * IMC) + (0.23 * age) - (10.8 * IMGS) - 5.4;
-                        int IMGC = Convert.ToInt32(Math.Round(IMG, 0));
-                        
-                        if ((IMGG < 15) && (IMGG == 1))
+                        double IMG = (1.20 * IMC) + (0.23 * age) - (10.8 * 1) - 5.4;
+
+                        ResultatIMC();
+
+
+                        if (IMG < 15)
                         {
                             IMGR = " Tu es trop maigre.";
                         }
-                        else if ((IMGG >= 15) && (IMGG <= 20) && (IMGG == 1))
+                        else if ((IMG >= 15) && (IMG <= 20))
                         {
                             IMGR = " Tu es normal.";
                         }
-                        else if ((IMGG > 20) && (IMGG == 1))
+                        else if (IMG > 20) 
                         {
                             IMGR = " Tu es trop de graisse.";
                         };
                         textIMG.Text = " Ton IMG est de " + Math.Round(IMG, 0) + Convert.ToString(IMGR);
+
+
 
 
                         await App.Database.SaveInfosAsync(new Infos
@@ -284,79 +301,92 @@ namespace EzFit.Views
                             MacroP = Math.Round((macroP / 4), 0),
                             MacroG = Math.Round((macroG / 4), 0),
                             MacroL = Math.Round((macroL / 9), 0),
-                            IMG = IMGC,
-                            MBasal = Convert.ToDouble(objectifR),
+                            IMG = Math.Round(IMG, 0),
+                            MBasal = Math.Round(hommeR),
                             Age = y.Age,
                             Poids = y.Poids,
                             Taille = y.Taille,
                             ValLifeStyle = y.ValLifeStyle,
                             ValSex = y.ValSex,
                             ValObjectif = y.ValObjectif,
-                            MBresult = Convert.ToDouble(hommeMBR),
-                        });
+                            MBresult = Convert.ToDouble(Math.Round(hommeMBR, 0)),
+                        }) ;
 
 
                     }
 
 
-                    //IMC ------------------------------------------------
-                    //Indice de masse corporelle – formule = kg / m2
-                    //- de 16,5 denutrition / 16.5 a 18.5 maigreur / 18.5 a 25 corpulence normale / 25 a 30 surpoids / 30 a 35 obesite moderer / 35 a 40 obesite severe / plus de 40 obesité morbide ou massive/ 
+                    void ResultatIMC()
+                    {
+                        //IMC ------------------------------------------------
+                        //Indice de masse corporelle – formule = kg / m2
+                        //- de 16,5 denutrition / 16.5 a 18.5 maigreur / 18.5 a 25 corpulence normale / 25 a 30 surpoids / 30 a 35 obesite moderer / 35 a 40 obesite severe / plus de 40 obesité morbide ou massive/ 
 
-                    double tailleCC = Math.Pow(taille, 2);
-                    double IMCC = poids / tailleCC;
+                        double tailleC = Math.Pow(taille, 2);
+                        double IMC = poids / tailleC;
 
-                    if (IMCC < 16.5)
-                    {
-                        IMCR = "Dénutrition";
-                    }
-                    else if ((IMCC >= 16.5) && (IMC <= 18.5))
-                    {
-                        IMCR = "Maigreur";
-                    }
-                    else if ((IMCC >= 18.5) && (IMC <= 25))
-                    {
-                        IMCR = "Corpulence normale";
-                    }
-                    else if ((IMCC >= 25) && (IMC <= 30))
-                    {
-                        IMCR = "Surpoids";
-                    }
-                    else if ((IMCC >= 30) && (IMC <= 35))
-                    {
-                        IMCR = "Obésité modéré";
-                    }
-                    else if ((IMCC >= 35) && (IMC <= 40))
-                    {
-                        IMCR = "Obésité sévère";
-                    }
-                    else if (IMCC > 40)
-                    {
-                        IMCR = "Obésidé morbide";
-                    };
+                        if (IMC < 16.5)
+                        {
+                            IMCR = "Dénutrition";
+                        }
+                        else if ((IMC >= 16.5) && (IMC <= 18.5))
+                        {
+                            IMCR = "Maigreur";
+                        }
+                        else if ((IMC >= 18.5) && (IMC <= 25))
+                        {
+                            IMCR = "Corpulence normale";
+                        }
+                        else if ((IMC >= 25) && (IMC <= 30))
+                        {
+                            IMCR = "Surpoids";
+                        }
+                        else if ((IMC >= 30) && (IMC <= 35))
+                        {
+                            IMCR = "Obésité modéré";
+                        }
+                        else if ((IMC >= 35) && (IMC <= 40))
+                        {
+                            IMCR = "Obésité sévère";
+                        }
+                        else if (IMC > 40)
+                        {
+                            IMCR = "Obésidé morbide";
+                        };
 
-                    textIMC.Text = "Votre IMC est de " + Math.Round(IMCC, 1) + " " + Convert.ToString(IMCR);
+                       
+                        textIMC.Text = "Votre IMC est de " + Convert.ToString(Math.Round(IMC, 0)) + " " + Convert.ToString(IMCR);
+                    }
 
-                    ////IMG % = (1.20*IMC)+(0.23*AGE)-(10.8*Sexe)-5.4 | La première formule de Deurenberg : homme 1 et femme 0 pour sexe
-                    ////femme Inférieur à 25% 	Trop maigre - Entre 25% et 30% 	Pourcentage normal - Supérieur à 30% 	Trop de graisse
-                    ////homme Inférieur à 15% 	Trop maigre - Entre 15% et 20% 	Pourcentage normal - Supérieur à 20% 	Trop de graisse
 
-                
+
+
                     break;
 
 
 
-                 }
+                }
 
-
-
+                
 
             }
+            
 
 
 
 
         }
+
+
+
+
+
+
+
     }
 }
+
+           
+
+        
 

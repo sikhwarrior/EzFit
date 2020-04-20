@@ -3,15 +3,21 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Android.App;
 
+#if DEBUG
+[assembly: Application(Debuggable = true)]
+#else
+[assembly: Application(Debuggable = false)]
+#endif
+
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EzFit.Android")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("AitFit.Android")]
+[assembly: AssemblyDescription("Fitness App")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EzFit.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
+[assembly: AssemblyCompany("Aitek")]
+[assembly: AssemblyProduct("AitFit.Android")]
+[assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

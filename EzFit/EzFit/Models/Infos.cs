@@ -44,7 +44,7 @@ namespace EzFit.Models
     
         public double MacroG { get; set; }
        
-        public int IMG { get; set; }
+        public double IMG { get; set; }
 
         public double MBasal { get; set; }
 

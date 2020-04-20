@@ -20,27 +20,41 @@ namespace EzFit.Views
         {
             InitializeComponent();
 
-            listTest.RefreshCommand = new Command((obj) =>
+            listNutri.ItemSelected += (sender, e) =>
+            {
+                if (listNutri.SelectedItem != null)
+                {
+                    Aliments item = listNutri.SelectedItem as Aliments;
+                    DisplayAlert(item.Protein, " (g/100g) Protein", "OK");
+                    listNutri.SelectedItem = null;
+                    //Protein, Carbohydrate, Fibres
+                }
+            };
+
+
+
+
+            listNutri.RefreshCommand = new Command((obj) =>
             {
                 DownloadData((aliments) =>
                 {
-                    listTest.ItemsSource = aliments;
-                    listTest.IsRefreshing = false;
+                    listNutri.ItemsSource = aliments;
+                    listNutri.IsRefreshing = false;
 
                 });
 
 
             });
 
-            listTest.IsVisible = false;
+            listNutri.IsVisible = false;
             waitLayout.IsVisible = true;
 
             DownloadData((aliments) =>
             {
-                listTest.ItemsSource = aliments;
+                listNutri.ItemsSource = aliments;
 
 
-                listTest.IsVisible = true;
+                listNutri.IsVisible = true;
                 waitLayout.IsVisible = false;
 
             });
