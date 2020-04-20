@@ -8,11 +8,11 @@
 
 
 #### Authors
-- Marcelo Pereira :trollface:
+ - Marcelo Pereira :trollface:
 
 
 #### License
-Data may be used under the terms and conditions of the Open Licence [(in French)](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
+ - Data may be used under the terms and conditions of the Open Licence [(in French)](https://www.etalab.gouv.fr/wp-content/uploads/2017/04/ETALAB-Licence-Ouverte-v2.0.pdf).
 
 
 
