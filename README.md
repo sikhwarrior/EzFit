@@ -1,4 +1,4 @@
-##  Fitness App - Alpha - - [in Progress] - -
+##  Fitness App - 
 
 ### Personnal Fitness App - Made with :heart: and Xamarin.Forms
 
