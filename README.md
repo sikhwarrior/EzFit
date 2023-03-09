@@ -8,7 +8,7 @@
 
 
 #### Authors
- - Yannis Marcelo Pereira :trollface:
+ - Yannis Marcelo :trollface:
 
 #### License
  - Data may be used under the terms and conditions of the Open Licence.
