@@ -4,6 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 
+    <BuildWithMSBuildOnMono>true</BuildWithMSBuildOnMono>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -12,19 +13,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Forms.Controls.FlexButton" Version="0.11.0" />
-    <PackageReference Include="Microcharts" Version="0.7.1" />
-    <PackageReference Include="Microcharts.Forms" Version="0.7.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Forms.Controls.FlexButton" Version="0.14.1" />
+    <PackageReference Include="Microcharts" Version="0.9.5.9" />
+    <PackageReference Include="Microcharts.Forms" Version="0.9.5.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xam.Forms.MarkdownView" Version="0.6.1-pre" />
     <PackageReference Include="Xam.Plugin.Iconize" Version="3.5.0.129" />
     <PackageReference Include="Xam.Plugin.Iconize.EntypoPlus" Version="3.5.0.129" />
     <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="3.5.0.129" />
     <PackageReference Include="Xam.Plugin.Iconize.Ionicons" Version="3.5.0.129" />
     <PackageReference Include="Xam.Plugin.Iconize.MaterialDesignIcons" Version="3.5.0.129" />
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.616-pre4" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.7" />
   </ItemGroup>
 
   <ItemGroup>

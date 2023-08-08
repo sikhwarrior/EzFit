@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
 using Xamarin.Forms.Xaml;
-using Entry = Microcharts.Entry;
+//using Entry = Microcharts.Entry;
 
 namespace EzFit.Views
 {

@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -64,19 +63,19 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Forms.Controls.FlexButton">
-      <Version>0.11.0</Version>
+      <Version>0.14.1</Version>
     </PackageReference>
     <PackageReference Include="Microcharts">
-      <Version>0.7.1</Version>
+      <Version>0.9.5.9</Version>
     </PackageReference>
     <PackageReference Include="Microcharts.Forms">
-      <Version>0.7.1</Version>
+      <Version>0.9.5.9</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>12.0.3</Version>
+      <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
-      <Version>1.6.292</Version>
+      <Version>1.8.116</Version>
     </PackageReference>
     <PackageReference Include="Xam.Forms.MarkdownView">
       <Version>0.6.1-pre</Version>
@@ -96,8 +95,8 @@
     <PackageReference Include="Xam.Plugin.Iconize.MaterialDesignIcons">
       <Version>3.5.0.129</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="4.6.0.616-pre4" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.5.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2578" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.7" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -137,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EzFit\EzFit.csproj">
-      <Project>{5DE0A7BB-1E36-4581-ABDA-D808D8767B69}</Project>
+      <Project>{D2EF9C99-CD6C-4262-8045-82384EF40C1B}</Project>
       <Name>EzFit</Name>
     </ProjectReference>
   </ItemGroup>
